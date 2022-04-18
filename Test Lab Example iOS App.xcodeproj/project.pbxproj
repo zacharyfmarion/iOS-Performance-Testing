@@ -14,6 +14,7 @@
 		0358BA06280E052D00BEEA1A /* Test_Lab_Example_iOS_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358BA05280E052D00BEEA1A /* Test_Lab_Example_iOS_AppTests.swift */; };
 		0358BA10280E052D00BEEA1A /* Test_Lab_Example_iOS_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358BA0F280E052D00BEEA1A /* Test_Lab_Example_iOS_AppUITests.swift */; };
 		0358BA12280E052D00BEEA1A /* Test_Lab_Example_iOS_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358BA11280E052D00BEEA1A /* Test_Lab_Example_iOS_AppUITestsLaunchTests.swift */; };
+		0358BA21280E05D000BEEA1A /* MeasureParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358BA20280E05D000BEEA1A /* MeasureParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0358BA0B280E052D00BEEA1A /* Test Lab Example iOS AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test Lab Example iOS AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0358BA0F280E052D00BEEA1A /* Test_Lab_Example_iOS_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Lab_Example_iOS_AppUITests.swift; sourceTree = "<group>"; };
 		0358BA11280E052D00BEEA1A /* Test_Lab_Example_iOS_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Lab_Example_iOS_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0358BA20280E05D000BEEA1A /* MeasureParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				0358BA0F280E052D00BEEA1A /* Test_Lab_Example_iOS_AppUITests.swift */,
 				0358BA11280E052D00BEEA1A /* Test_Lab_Example_iOS_AppUITestsLaunchTests.swift */,
+				0358BA20280E05D000BEEA1A /* MeasureParser.swift */,
 			);
 			path = "Test Lab Example iOS AppUITests";
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0358BA10280E052D00BEEA1A /* Test_Lab_Example_iOS_AppUITests.swift in Sources */,
+				0358BA21280E05D000BEEA1A /* MeasureParser.swift in Sources */,
 				0358BA12280E052D00BEEA1A /* Test_Lab_Example_iOS_AppUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

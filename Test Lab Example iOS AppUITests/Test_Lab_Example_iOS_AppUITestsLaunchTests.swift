@@ -1,32 +1,47 @@
 //
-//  Test_Lab_Example_iOS_AppUITestsLaunchTests.swift
-//  Test Lab Example iOS AppUITests
+//  Performance_Tests.swift
+//  Performance Tests
 //
-//  Created by Zachary Marion on 4/18/22.
+//  Created by Zachary Marion on 3/29/22.
 //
 
 import XCTest
 
-class Test_Lab_Example_iOS_AppUITestsLaunchTests: XCTestCase {
+// BASELINES
+let APP_LAUNCH_ITERATION_COUNT = 3
+let MAX_APP_LAUNCH_TIME = Float(3000)
 
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
-        true
+class LaunchPerformanceTests: XCTestCase {
+  let measureParser = MeasureParser()
+  
+  override func setUpWithError() throws {
+    continueAfterFailure = false
+  }
+  
+  override func tearDownWithError() throws {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+  }
+  
+  func testLaunchPerformance() throws {
+    self.measureParser.capture { [weak self] in
+      guard let self = self else { return }
+      self.measureLaunchPerformance()
     }
-
-    override func setUpWithError() throws {
-        continueAfterFailure = false
+    
+    print(self.measureParser.results)
+    let appLaunchTime = self.measureParser.getResult("Duration (AppLaunch)")
+    XCTAssert(appLaunchTime != nil, "App launch time statistic not available")
+    XCTAssert(appLaunchTime! < MAX_APP_LAUNCH_TIME, "App launch time took too long")
+  }
+  
+  private func measureLaunchPerformance() {
+    if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
+      let measureOptions = XCTMeasureOptions.default
+      measureOptions.iterationCount = APP_LAUNCH_ITERATION_COUNT
+      // This measures how long it takes to launch your application.
+      measure(metrics: [XCTApplicationLaunchMetric()], options: measureOptions) {
+        XCUIApplication().launch()
+      }
     }
-
-    func testLaunch() throws {
-        let app = XCUIApplication()
-        app.launch()
-
-        // Insert steps here to perform after app launch but before taking a screenshot,
-        // such as logging into a test account or navigating somewhere in the app
-
-        let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.name = "Launch Screen"
-        attachment.lifetime = .keepAlways
-        add(attachment)
-    }
+  }
 }
